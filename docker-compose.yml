@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  rabbitmq:
+    image: rabbitmq:3.10.20-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 15s
+      timeout: 30s
+      retries: 3
+    environment:
+      - RABBITMQ_DEFAULT_VHOST=/
+  zipkin:
+    image: openzipkin/zipkin:2
+    ports:
+        - "9411:9411"
