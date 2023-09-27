@@ -1,0 +1,10 @@
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+spring:
+  rabbitmq:
+    listener:
+      type: DIRECT
